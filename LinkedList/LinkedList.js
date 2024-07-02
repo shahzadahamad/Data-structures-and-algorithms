@@ -164,5 +164,5 @@ const list = new LinkedList();
 list.prepend(20);
 list.append(100);
 list.print();
-list.reverseList()
-list.print()
+list.reverseList();
+list.print();
