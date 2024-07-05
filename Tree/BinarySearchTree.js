@@ -214,7 +214,5 @@ bst.insert(22);
 bst.insert(25);
 bst.insert(7);
 bst.insert(15);
-// console.log(bst.findClosest(11))
-// console.log(bst.isValidBST());
-// bst.preOrder();
-// bst.postOrder();
+
+
