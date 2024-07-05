@@ -38,6 +38,50 @@ class Graph {
     this.list.delete(vertex);
   }
 
+  bfs(startVertex) {
+    const visited = new Set();
+    const queue = [startVertex];
+    const result = [];
+
+    visited.add(startVertex);
+
+    while (queue.length) {
+      let curr = queue.shift();
+      result.push(curr);
+
+      for (let neighbor of this.list.get(curr)) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          queue.push(neighbor);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  dfs(startVertex) {
+    const visited = new Set();
+    const stack = [startVertex];
+    const result = [];
+
+    visited.add(startVertex);
+
+    while (stack.length) {
+      let curr = stack.pop();
+      result.push(curr);
+
+      for (let neighbor of this.list.get(curr)) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          stack.push(neighbor);
+        }
+      }
+    }
+
+    return result;
+  }
+
   display() {
     for (const [key, value] of this.list) {
       console.log(key + " : " + value.join(" "));
@@ -46,12 +90,12 @@ class Graph {
 }
 
 const graph = new Graph();
-graph.insert(2,5,true);
-graph.insert(3,5,false);
-graph.insert(2,3,false);
-graph.insert(8,9,false);
-graph.insert(4,1,true);
-graph.insert(2,8,false);
-graph.insert(3,1,false);
-graph.insert(5,4,false);
-graph.display()
+graph.insert(2, 5, true);
+graph.insert(3, 5, false);
+graph.insert(2, 3, false);
+graph.insert(8, 9, false);
+graph.insert(4, 1, true);
+graph.insert(2, 8, false);
+graph.insert(3, 1, false);
+graph.insert(5, 4, false);
+graph.display();
